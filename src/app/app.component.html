@@ -20,16 +20,6 @@
               <h5 class="user-handle">{{ email }}</h5>
             </ion-col>
           </ion-row>
-          <!--   <ion-row class="user-stats-wrapper user-details-wrapper">
-            <ion-col>
-              <span class="user-stat-value">1553</span>
-              <span class="user-stat-name">Following</span>
-            </ion-col>
-            <ion-col>
-              <span class="user-stat-value">537</span>
-              <span class="user-stat-name">Followers</span>
-            </ion-col>
-          </ion-row> -->
         </ion-toolbar>
       </ion-header>
       <ion-content>
@@ -38,16 +28,6 @@
             <ion-item [routerLink]="['/home']">
               <ion-icon slot="start" name="people-sharp"></ion-icon>
               <ion-label> Home </ion-label>
-            </ion-item>
-
-            <ion-item [routerLink]="['/pricing']">
-              <ion-icon slot="start" name="settings-sharp"></ion-icon>
-              <ion-label> Services and Pricing </ion-label>
-            </ion-item>
-
-            <ion-item [routerLink]="['/promos']">
-              <ion-icon slot="start" name="megaphone-outline"></ion-icon>
-              <ion-label> Promotions</ion-label>
             </ion-item>
 
             <ion-item [routerLink]="['/auth/login']">
@@ -92,29 +72,6 @@
               <ion-label> Setups </ion-label>
             </ion-item>
 
-            <ion-item [routerLink]="['/serviceforms']">
-              <ion-icon slot="start" name="construct-outline"></ion-icon>
-              <ion-label> Services </ion-label>
-            </ion-item>
-
-            <ion-item [routerLink]="['/subscription']">
-              <ion-icon slot="start" name="pricetags-sharp"></ion-icon>
-              <ion-label> Subscription </ion-label>
-            </ion-item>
-
-            <ion-item [routerLink]="['/orderrefunds']">
-              <ion-icon slot="start" name="arrow-undo-outline"></ion-icon>
-              <ion-label> Refunds </ion-label>
-            </ion-item>
-            <ion-item [routerLink]="['/adminorders']">
-              <ion-icon slot="start" name="cart-outline"></ion-icon>
-              <ion-label> Orders </ion-label>
-            </ion-item>
-            <ion-item [routerLink]="['/completedorders']">
-              <ion-icon slot="start" name="wallet-outline"></ion-icon>
-              <ion-label> Order Share </ion-label>
-            </ion-item>
-
             <ion-item [routerLink]="['/admincontactus']">
               <ion-icon slot="start" name="mail-open-outline"></ion-icon>
               <ion-label> Customer Messages </ion-label>
@@ -135,41 +92,6 @@
             <ion-item [routerLink]="['/app/user']">
               <ion-icon slot="start" name="apps-outline"></ion-icon>
               <ion-label> My Profile </ion-label>
-            </ion-item>
-
-            <ion-item *ngIf="isLoggedIn" [routerLink]="['/myorders']">
-              <ion-icon slot="start" name="cart-outline"></ion-icon>
-              <ion-label> My Orders </ion-label>
-            </ion-item>
-
-            <ion-item *ngIf="isLoggedIn" [routerLink]="['/assignedorders']">
-              <ion-icon slot="start" name="cart-outline"></ion-icon>
-              <ion-label> Assigned Orders </ion-label>
-            </ion-item>
-
-            <ion-item [routerLink]="['/mycompletedorders']">
-              <ion-icon slot="start" name="wallet-outline"></ion-icon>
-              <ion-label> Order Share </ion-label>
-            </ion-item>
-
-            <ion-item *ngIf="isLoggedIn" [routerLink]="['/activesubscription']">
-              <ion-icon slot="start" name="heart-circle-outline"></ion-icon>
-              <ion-label> Subscription </ion-label>
-            </ion-item>
-
-            <ion-item [routerLink]="['/pricing']">
-              <ion-icon slot="start" name="settings-sharp"></ion-icon>
-              <ion-label> Services and Pricing </ion-label>
-            </ion-item>
-
-            <ion-item [routerLink]="['/promos']">
-              <ion-icon slot="start" name="megaphone-outline"></ion-icon>
-              <ion-label> Promotions</ion-label>
-            </ion-item>
-
-            <ion-item [routerLink]="['/myorderrefunds']">
-              <ion-icon slot="start" name="arrow-undo-outline"></ion-icon>
-              <ion-label> Refunds </ion-label>
             </ion-item>
 
             <ion-item [routerLink]="['/faqs']">
