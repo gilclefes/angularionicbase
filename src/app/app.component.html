@@ -1,0 +1,191 @@
+<ion-app dir="{{ textDir }}">
+  <!-- when=false means that the split pane will never expand automatically -->
+  <!-- For more info check https://ionicframework.com/docs/api/split-pane -->
+  <ion-split-pane contentId="menu-content" when="false">
+    <ion-menu contentId="menu-content" class="app-sidemenu">
+      <ion-header>
+        <ion-toolbar>
+          <ion-row class="user-details-wrapper">
+            <ion-col size="4">
+              <app-aspect-ratio [ratio]="{ w: 1, h: 1 }">
+                <app-image-shell
+                  class="user-avatar"
+                  animation="spinner"
+                  [src]="'./assets/sample-images/yabo.jpg'"
+                ></app-image-shell>
+              </app-aspect-ratio>
+            </ion-col>
+            <ion-col class="user-info-wrapper" size="8" *ngIf="isLoggedIn">
+              <h3 class="user-name">{{ email }}</h3>
+              <h5 class="user-handle">{{ email }}</h5>
+            </ion-col>
+          </ion-row>
+          <!--   <ion-row class="user-stats-wrapper user-details-wrapper">
+            <ion-col>
+              <span class="user-stat-value">1553</span>
+              <span class="user-stat-name">Following</span>
+            </ion-col>
+            <ion-col>
+              <span class="user-stat-value">537</span>
+              <span class="user-stat-name">Followers</span>
+            </ion-col>
+          </ion-row> -->
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list *ngIf="!isLoggedIn">
+          <ion-menu-toggle autoHide="false">
+            <ion-item [routerLink]="['/home']">
+              <ion-icon slot="start" name="people-sharp"></ion-icon>
+              <ion-label> Home </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/pricing']">
+              <ion-icon slot="start" name="settings-sharp"></ion-icon>
+              <ion-label> Services and Pricing </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/promos']">
+              <ion-icon slot="start" name="megaphone-outline"></ion-icon>
+              <ion-label> Promotions</ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/auth/login']">
+              <ion-icon slot="start" name="log-in-outline"></ion-icon>
+              <ion-label> Log In </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/auth/signup']">
+              <ion-icon slot="start" name="person-add-outline"></ion-icon>
+              <ion-label> Sign Up </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/faqs']">
+              <ion-icon slot="start" name="help-circle-outline"></ion-icon>
+              <ion-label> FAQs </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/contactus']">
+              <ion-icon slot="start" name="call-sharp"></ion-icon>
+              <ion-label>Contact Us </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list *ngIf="isLoggedIn">
+          <ion-list-header>
+            <ion-label>Admin Pages</ion-label>
+          </ion-list-header>
+
+          <ion-menu-toggle autoHide="false">
+            <ion-item *ngIf="isLoggedIn" [routerLink]="['/dashboard']">
+              <ion-icon slot="start" name="grid-outline"></ion-icon>
+              <ion-label> Dashboard </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/auth/users']">
+              <ion-icon slot="start" name="people-sharp"></ion-icon>
+              <ion-label> Users </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/adminforms']">
+              <ion-icon slot="start" name="settings-sharp"></ion-icon>
+              <ion-label> Setups </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/serviceforms']">
+              <ion-icon slot="start" name="construct-outline"></ion-icon>
+              <ion-label> Services </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/subscription']">
+              <ion-icon slot="start" name="pricetags-sharp"></ion-icon>
+              <ion-label> Subscription </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/orderrefunds']">
+              <ion-icon slot="start" name="arrow-undo-outline"></ion-icon>
+              <ion-label> Refunds </ion-label>
+            </ion-item>
+            <ion-item [routerLink]="['/adminorders']">
+              <ion-icon slot="start" name="cart-outline"></ion-icon>
+              <ion-label> Orders </ion-label>
+            </ion-item>
+            <ion-item [routerLink]="['/completedorders']">
+              <ion-icon slot="start" name="wallet-outline"></ion-icon>
+              <ion-label> Order Share </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/admincontactus']">
+              <ion-icon slot="start" name="mail-open-outline"></ion-icon>
+              <ion-label> Customer Messages </ion-label>
+            </ion-item>
+            <ion-item [routerLink]="['/adminfaqs']">
+              <ion-icon slot="start" name="help-circle-outline"></ion-icon>
+              <ion-label> FAQs Setup </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <ion-list *ngIf="isLoggedIn">
+          <ion-list-header>
+            <ion-label>My Account</ion-label>
+          </ion-list-header>
+
+          <ion-menu-toggle autoHide="false">
+            <ion-item [routerLink]="['/app/user']">
+              <ion-icon slot="start" name="apps-outline"></ion-icon>
+              <ion-label> My Profile </ion-label>
+            </ion-item>
+
+            <ion-item *ngIf="isLoggedIn" [routerLink]="['/myorders']">
+              <ion-icon slot="start" name="cart-outline"></ion-icon>
+              <ion-label> My Orders </ion-label>
+            </ion-item>
+
+            <ion-item *ngIf="isLoggedIn" [routerLink]="['/assignedorders']">
+              <ion-icon slot="start" name="cart-outline"></ion-icon>
+              <ion-label> Assigned Orders </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/mycompletedorders']">
+              <ion-icon slot="start" name="wallet-outline"></ion-icon>
+              <ion-label> Order Share </ion-label>
+            </ion-item>
+
+            <ion-item *ngIf="isLoggedIn" [routerLink]="['/activesubscription']">
+              <ion-icon slot="start" name="heart-circle-outline"></ion-icon>
+              <ion-label> Subscription </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/pricing']">
+              <ion-icon slot="start" name="settings-sharp"></ion-icon>
+              <ion-label> Services and Pricing </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/promos']">
+              <ion-icon slot="start" name="megaphone-outline"></ion-icon>
+              <ion-label> Promotions</ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/myorderrefunds']">
+              <ion-icon slot="start" name="arrow-undo-outline"></ion-icon>
+              <ion-label> Refunds </ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/faqs']">
+              <ion-icon slot="start" name="help-circle-outline"></ion-icon>
+              <ion-label> FAQs </ion-label>
+            </ion-item>
+
+            <ion-item *ngIf="isLoggedIn" (click)="onLogout()">
+              <ion-icon slot="start" name="log-out-outline"></ion-icon>
+              <ion-label> Log Out </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <!-- Main app content gets rendered in this router-outlet -->
+    <ion-router-outlet id="menu-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

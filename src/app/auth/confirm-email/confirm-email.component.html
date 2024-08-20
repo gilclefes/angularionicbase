@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Confirm Email</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <app-header ptitle="Sign Up"></app-header> -->
+
+<ion-content class="container">
+  <ion-row class="signup-content">
+    <ion-col sizeMd="6" sizeXs="12" sizeSm="12">
+      <form>
+        <ion-list class="inputs-list" lines="full">
+          <ion-list-header
+            >Click on the button to confirm your email</ion-list-header
+          >
+
+          <ion-button
+            (click)="confirmEmail()"
+            class="signup-btn"
+            type="button"
+            expand="block"
+            [disabled]="!token && !userId"
+            >Confirm Email</ion-button
+          >
+        </ion-list>
+      </form>
+    </ion-col></ion-row
+  >
+</ion-content>

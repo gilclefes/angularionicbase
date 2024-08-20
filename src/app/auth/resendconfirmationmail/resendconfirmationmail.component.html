@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Email Confirmation?</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="container">
+  <ion-row class="forgot-password-content">
+    <ion-col sizeMd="6" sizeXs="12" sizeSm="12">
+      <h2 class="auth-title">Confirm your email</h2>
+      <p class="recover-message">
+        Please enter your email address and we'll send you an email to confirm
+        your email.
+      </p>
+      <form
+        [formGroup]="resendConfirmatinoMailForm"
+        (ngSubmit)="confirmEmail()"
+      >
+        <ion-list class="inputs-list" lines="full">
+          <ion-item class="input-item">
+            <ion-input
+              type="email"
+              placeholder="Email"
+              formControlName="email"
+              clearInput
+              autocapitalize="off"
+              inputmode="email"
+            ></ion-input>
+          </ion-item>
+          <div class="error-container">
+            <ng-container *ngFor="let validation of validation_messages.email">
+              <div
+                class="error-message"
+                *ngIf="
+                  resendConfirmatinoMailForm
+                    .get('email')
+                    .hasError(validation.type) &&
+                  (resendConfirmatinoMailForm.get('email').dirty ||
+                    resendConfirmatinoMailForm.get('email').touched)
+                "
+              >
+                <ion-icon name="information-circle-outline"></ion-icon>
+                <span>{{ validation.message }}</span>
+              </div>
+            </ng-container>
+          </div>
+        </ion-list>
+
+        <ion-button
+          class="reset-password-btn"
+          type="submit"
+          expand="block"
+          [disabled]="!resendConfirmatinoMailForm.valid"
+          >Get Confirmation Mail</ion-button
+        >
+      </form>
+    </ion-col></ion-row
+  >
+</ion-content>

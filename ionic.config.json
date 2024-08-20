@@ -1,0 +1,10 @@
+{
+  "name": "Ionic5FullApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "hooks": {
+    "build:before": "src/assets/scripts/copyres.js"
+  }
+}

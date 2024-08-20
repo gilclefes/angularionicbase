@@ -1,0 +1,137 @@
+<app-header ptitle="Dashboard"></app-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="5">
+        <ion-card color="facebook">
+          <ion-card-header>
+            <ion-card-subtitle>Start Date</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-datetime-button datetime="startDate"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime
+                  id="startDate"
+                  [(ngModel)]="startDate"
+                  [value]="today"
+                  displayFormat="MM/DD/YYYY"
+                  [max]="today"
+                ></ion-datetime>
+              </ng-template>
+            </ion-modal>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="5">
+        <ion-card color="facebook">
+          <ion-card-header>
+            <ion-card-subtitle>End Date</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-datetime-button datetime="endDate"></ion-datetime-button>
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-datetime
+                  id="endDate"
+                  [(ngModel)]="endDate"
+                  [value]="today"
+                  displayFormat="MM/DD/YYYY"
+                  [max]="today"
+                ></ion-datetime>
+              </ng-template>
+            </ion-modal>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button
+          class="submit-btn"
+          color="secondary"
+          type="button"
+          fill="solid"
+          (click)="GetOrderStats()"
+          >Get</ion-button
+        >
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>All Orders</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Replace with your data -->
+            <h2>{{ orderStats?.totalOrders }}</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Total Sales</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Replace with your data -->
+            <h2>{{ orderStats?.totalSales | number : "1.2-2" }}</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Cancelled</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Replace with your data -->
+            <h2>{{ orderStats?.totalCancelledOrders }}</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Completed</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Replace with your data -->
+            <h2>{{ orderStats?.totalCompletedOrders }}</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Clients</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Replace with your data -->
+            <h2>{{ orderStats?.totalClients }}</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Subscriptions</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Replace with your data -->
+            <h2>{{ orderStats?.totalSubscriptions }}</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

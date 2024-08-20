@@ -1,0 +1,188 @@
+<!-- This is the proper way if you have submit button outside your ion-content form (typically in the ion-header or ion-footer) -->
+<!-- (ref: https://github.com/ionic-team/ionic/issues/16661) -->
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button (click)="cancelModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>State</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div *ngIf="CountryList && !isEditMode">
+  <p *ngIf="CountryList.length === 0" class="details-name">No record found</p>
+
+  <form [formGroup]="searchForm">
+    <ion-row>
+      <ion-col size="10">
+        <ion-searchbar
+          placeholder="search..."
+          formControlName="searchControl"
+          value=""
+        ></ion-searchbar>
+      </ion-col>
+
+      <ion-col size="2">
+        <ion-button color="secondary" expand="block" (click)="newRecord()">
+          <ion-icon name="add-circle-outline"></ion-icon>
+          <span class="hide-sm hide-xs">New State</span>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+  <div>
+    <ion-item
+      *ngFor="let pymt of CountryList; let i = index"
+      style="padding-top: 0px; padding-bottom: 0px"
+    >
+      <ion-label>
+        <ion-row align-items-center>
+          <ion-col size="10">
+            <ion-row>
+              <div class="notification-item" lines="none">
+                <ion-row class="notification-item-wrapper">
+                  <ion-col class="details-wrapper">
+                    <h2 class="details-name">
+                      <ion-text color="secondary"
+                        ><b> {{ pymt.name }} </b> ( {{ pymt.code }})</ion-text
+                      >
+                    </h2>
+                  </ion-col>
+                  <ion-col class="details-wrapper">
+                    <h2 class="details-name">
+                      <ion-text color="primary">
+                        {{ pymt.symbol }}
+                      </ion-text>
+                    </h2>
+                  </ion-col>
+
+                  <ion-col class="details-wrapper">
+                    <p class="details-description">
+                      {{ pymt.status == true ? "Active" : "Inactive" }}
+                    </p>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-row>
+          </ion-col>
+          <ion-col size="2" class="ion-justify-content-end">
+            <ion-row class="ion-justify-content-end" align-items-center>
+              <ion-button
+                color="secondary"
+                expand="block"
+                (click)="editCountryForm(pymt)"
+              >
+                <ion-icon name="create-outline"></ion-icon
+                ><span class="hide-sm hide-xs">Edit</span>
+              </ion-button>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-label>
+    </ion-item>
+  </div>
+</div>
+
+<form
+  *ngIf="isEditMode"
+  class="create-country-content"
+  [formGroup]="createCountryForm"
+  (ngSubmit)="updateCountry()"
+>
+  <ion-row>
+    <ion-col size="6" sizeMd="6" sizeXs="12" sizeXl="12">
+      <ion-content class="create-user-content">
+        <section class="user-details-fields">
+          <ion-list class="inputs-list" lines="full">
+            <ion-item class="input-item">
+              <ion-input
+                label="Code"
+                labelPlacement="floating"
+                type="text"
+                formControlName="code"
+                required
+              ></ion-input>
+            </ion-item>
+
+            <div class="error-container">
+              <ng-container *ngFor="let validation of validations.code">
+                <div
+                  class="error-message"
+                  *ngIf="
+                    createCountryForm.get('code').hasError(validation.type) &&
+                    (createCountryForm.get('code').dirty ||
+                      createCountryForm.get('code').touched)
+                  "
+                >
+                  <ion-icon name="information-circle-outline"></ion-icon>
+                  <span>{{ validation.message }}</span>
+                </div>
+              </ng-container>
+            </div>
+
+            <ion-item class="input-item">
+              <ion-input
+                label="Name"
+                labelPlacement="floating"
+                type="text"
+                formControlName="name"
+                required
+              ></ion-input>
+            </ion-item>
+
+            <div class="error-container">
+              <ng-container *ngFor="let validation of validations.name">
+                <div
+                  class="error-message"
+                  *ngIf="
+                    createCountryForm.get('name').hasError(validation.type) &&
+                    (createCountryForm.get('name').dirty ||
+                      createCountryForm.get('name').touched)
+                  "
+                >
+                  <ion-icon name="information-circle-outline"></ion-icon>
+                  <span>{{ validation.message }}</span>
+                </div>
+              </ng-container>
+            </div>
+
+            <ion-item class="input-item terms-item">
+              <label class="terms-label" id="status">Status</label>
+              <ion-checkbox
+                formControlName="status"
+                aria-label="Status"
+                aria-labelledby="status"
+              ></ion-checkbox>
+            </ion-item>
+          </ion-list>
+        </section>
+
+        <ion-row class="form-actions-wrapper">
+          <ion-col style="display: flex; justify-content: space-between">
+            <ion-button
+              class="submit-btn"
+              color="secondary"
+              type="submit"
+              fill="solid"
+              [disabled]="!createCountryForm.valid"
+              >Submit</ion-button
+            >
+
+            <ion-button
+              class="submit-btn"
+              color="medium"
+              type="button"
+              fill="solid"
+              (click)="cancelForm()"
+              >Cancel</ion-button
+            >
+          </ion-col>
+        </ion-row>
+      </ion-content>
+    </ion-col>
+  </ion-row>
+</form>

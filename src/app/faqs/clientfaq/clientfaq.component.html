@@ -1,0 +1,22 @@
+<app-header ptitle="FAQs"></app-header>
+<ion-content>
+
+  <p *ngIf="FaqList.length === 0" class="details-name">
+    No FAQ  found
+  </p>
+  <ion-list>
+    <ion-item *ngFor="let faq of FaqList">
+      <ion-label>
+        <h2>
+          <ion-text color="secondary"
+          ><b> {{ faq.question }} </b></ion-text
+        >
+    </h2>
+        <p>{{ faq.answer }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>

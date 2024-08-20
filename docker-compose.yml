@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+  yabofrontendapp:
+    image: yabofrontendimg:latest
+    container_name: yabofrontend
+    ports:
+      - 8882:80

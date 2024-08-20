@@ -1,0 +1,116 @@
+<!-- This is the proper way if you have submit button outside your ion-content form (typically in the ion-header or ion-footer) -->
+<!-- (ref: https://github.com/ionic-team/ionic/issues/16661) -->
+
+<app-header ptitle="Applications Users"></app-header>
+
+<ion-content>
+  <div *ngIf="usersList && !isEditMode">
+    <p *ngIf="usersList.length === 0" class="details-name">No record found</p>
+
+    <form [formGroup]="searchForm">
+      <ion-row>
+        <ion-col size="12">
+          <ion-searchbar
+            placeholder="search..."
+            formControlName="searchControl"
+            value=""
+          ></ion-searchbar>
+        </ion-col>
+      </ion-row>
+    </form>
+
+    <div>
+      <ion-item
+        *ngFor="let pymt of usersList; let i = index"
+        style="padding-top: 0px; padding-bottom: 0px"
+      >
+        <ion-label>
+          <ion-row align-items-center>
+            <ion-col size="8">
+              <ion-row>
+                <div class="notification-item" lines="none">
+                  <ion-row class="notification-item-wrapper">
+                    <ion-col class="details-wrapper">
+                      <h2 class="details-name">
+                        <ion-text color="secondary">
+                          <b> {{ pymt.userName }}</b>
+                        </ion-text>
+                      </h2>
+                    </ion-col>
+                    <ion-col class="details-wrapper">
+                      <h4 class="details-name">
+                        <ion-text
+                          color="primary"
+                          *ngFor="let tag of pymt.roles"
+                        >
+                          <small>
+                            <span class="item-tag"> {{ tag }} </span>
+                          </small>
+                        </ion-text>
+                      </h4>
+                    </ion-col>
+                  </ion-row>
+                </div>
+              </ion-row>
+            </ion-col>
+            <ion-col size="4" class="ion-justify-content-end">
+              <ion-row class="ion-justify-content-end" align-items-center>
+                <ion-button
+                  color="secondary"
+                  expand="block"
+                  (click)="getUserRoles(pymt)"
+                >
+                  <ion-icon name="create-outline"></ion-icon
+                  ><span class="hide-sm hide-xs">Edit</span>
+                </ion-button>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-label>
+      </ion-item>
+    </div>
+  </div>
+  <div *ngIf="isEditMode">
+    <form>
+      <ion-row>
+        <ion-col size="6" sizeMd="6" sizeXs="12" sizeXl="6">
+          <ion-list>
+            <ion-list-header>
+              <ion-label class="list-header"
+                >Username : <b>{{ selectedUser.email }}</b>
+              </ion-label>
+            </ion-list-header>
+            <ion-list-header lines="full">
+              <ion-label class="list-header">User Roles:</ion-label>
+            </ion-list-header>
+
+            <div *ngFor="let option of allCurrentRoles">
+              <ion-item class="input-item">
+                <ion-label class="service-item">{{ option }}</ion-label>
+                <ion-checkbox
+                  [value]="option"
+                  (ionChange)="onCheckboxChange(option)"
+                  [checked]="selectedUserRoles.includes(option)"
+                ></ion-checkbox>
+              </ion-item>
+            </div>
+
+            <ion-button
+              slot="start"
+              round
+              end
+              favorite
+              [disabled]="!formValid"
+              (click)="updateUserRoles()"
+            >
+              Update Roles
+            </ion-button>
+            <ion-button round (click)="closeForm()" color="danger" slot="end">
+              Cancel
+            </ion-button>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+</ion-content>

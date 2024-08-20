@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Notifications </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="notifications-content">
+  <ng-container *ngIf="notifications">
+    <ion-item-group>
+     <!--  <ion-item-divider sticky>
+        <ion-label>Today</ion-label>
+      </ion-item-divider> -->
+      <ion-item
+        class="notification-item"
+        lines="none"
+        *ngFor="let notification of notifications"
+      >
+        <ion-row class="notification-item-wrapper">
+        
+          <ion-col class="details-wrapper">
+            <h2 class="details-name">{{ notification.orderName }}</h2>
+            <p class="details-description">{{ notification.message }}</p>
+          </ion-col>
+          <ion-col size="4" class="date-wrapper">
+            <h3 class="notification-date">{{ notification.messageFrom }}</h3>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-item-group>
+    
+  </ng-container>
+</ion-content>

@@ -1,0 +1,232 @@
+<app-header ptitle="Yabo Home"></app-header>
+<ion-content class="fashion-details-content">
+  <ion-row class="slider-row top-header">
+    <video autoplay muted playsinline loop id="myVideo">
+      <source src="../../assets/videos/Laundry_Final.mp4?v1" type="video/mp4" />
+    </video>
+    <ion-col size="6" sizeMd="6" sizeXs="12" class="top-header-col">
+      <ion-text>
+        <h1 class="top-header-text-big">
+          Reclaim your time <br />with our laundry service!
+        </h1>
+      </ion-text>
+      <ion-text>
+        <h1 class="top-header-text-mid">Save 4 hours weekly</h1>
+      </ion-text>
+      <ion-text>
+        <h1 class="top-header-text-mid">
+          Say goodbye to boring and painful laundry days
+        </h1>
+      </ion-text>
+      <ion-text>
+        <h1 class="top-header-text-sml">
+          Discover the convenience of professional laundry services delivered
+          right to your doorstep. From quick washes and dry cleaning to
+          specialized garment care, we've got all your laundry needs covered.
+          Our dedicated team ensures your clothes are always fresh, clean, and
+          perfectly cared for.
+        </h1>
+      </ion-text>
+
+      <ion-button
+        shape="round"
+        (click)="tryYabo()"
+        color="facebook"
+        type="button"
+        size="large"
+        style="text-transform: none; width: max-content"
+        >Start your first order</ion-button
+      >
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-center mid-section">
+    <ion-col size="12" class="ion-justify-content-center">
+      <ion-text class="ion-text-center">
+        <h1
+          class="top-header-text-mid"
+          style="font-size: 40px; color: black; margin-top: 30px"
+        >
+          OUR SERVICES
+        </h1>
+      </ion-text>
+    </ion-col>
+    <ion-col
+      size="12"
+      class="ion-justify-content-center"
+      style="margin-bottom: 40px"
+    >
+      <ion-text class="ion-text-center">
+        <h1
+          class="top-header-text-mid"
+          style="font-size: 25px; color: #86888f; margin-top: 5px"
+        >
+          A quick overview of what Yabo can do for you.
+        </h1>
+      </ion-text>
+    </ion-col>
+    <ion-row>
+       <!-- First Column -->
+  <ion-col size="4" sizeMd="4" sizeXs="12">
+    <ion-col size="12">
+      <ion-img
+        class="image-style"
+        src="../../assets/sample-images/yabo/wash-n-fold.png"
+        alt="wash and fold image"
+      ></ion-img>
+    </ion-col>
+    <ion-text class="ion-text-center">
+      <h1
+        class="top-header-text-mid"
+        style="font-size: 30px; color: #00ACED; margin-top: 10px"
+      >
+        Wash and Fold
+      </h1>
+      <h1
+        class="top-header-text-mid"
+        style="font-size: 15px; color: #86888F; margin-top: 10px"
+      >
+        Our standard service for <br> everyday laundry.  wash, dry, and <br>fold your
+        clothes, ready for you to wear.
+      </h1>
+    </ion-text>
+  </ion-col>
+
+  <!-- Second Column -->
+  <ion-col size="4" sizeMd="4" sizeXs="12">
+    <ion-col size="12">
+      <ion-img
+        class="image-style"
+        src="../../assets/sample-images/yabo/inroning-service.png"
+        alt="wash and fold image"
+      ></ion-img>
+    </ion-col>
+    <ion-text class="ion-text-center">
+      <h1
+        class="top-header-text-mid"
+        style="font-size: 30px; color: #00ACED; margin-top: 10px"
+      >
+        Ironing Service
+      </h1>
+      <h1
+        class="top-header-text-mid"
+        style="font-size: 15px; color: #86888F; margin-top: 10px"
+      >
+      Say goodbye to wrinkles with our <br>expert ironing services.
+      </h1>
+    </ion-text>
+  </ion-col>
+
+  <!-- Third Column -->
+  <ion-col size="4" sizeMd="4" sizeXs="12">
+    <ion-col size="12">
+      <ion-img
+        class="image-style"
+        src="../../assets/sample-images/yabo/dry-cleaning-service.png"
+        alt="wash and fold image"
+      ></ion-img>
+    </ion-col>
+    <ion-text class="ion-text-center">
+      <h1
+        class="top-header-text-mid"
+        style="font-size: 30px; color: #00ACED; margin-top: 10px"
+      >
+        Dry Cleaning Service
+      </h1>
+      <h1
+        class="top-header-text-mid"
+        style="font-size: 15px; color: #86888F; margin-top: 10px"
+      >
+      We will handle all your delicate fabrics and <br> special garments. Choose our green dry 
+      cleaning options to reduce your environmental impact.
+      </h1>
+    </ion-text>
+  </ion-col>
+    </ion-row>
+  </ion-row>
+  <ion-row class="ion-justify-content ion-align-items-center mid-two-section">
+    <ion-col size="12" class="ion-justify-content-center">
+      <ion-text class="ion-text-center">
+        <h1
+          class="top-header-text-mid"
+          style="font-size: 40px; color: #86888F; margin-top: 30px"
+        >
+        Your Finest Laundry and Dry Cleaning Service
+        </h1>
+      </ion-text>
+    </ion-col>
+    <ion-img
+    class="image-style" id="circles"
+        src="../../assets/sample-images/yabo/circles.png"
+        alt="wash and fold image">
+
+    </ion-img>
+  </ion-row>
+  <ion-row class="ion-justify-content-center mid-three-section">
+    <ion-col size="12" class="ion-justify-content-center">
+      <ion-text class="ion-text-center">
+        <h1
+          class="top-header-text-mid"
+          style="font-size: 40px; color: black; margin-top: 30px"
+        >
+        HOW IT WORKS
+        </h1>
+      </ion-text>
+    </ion-col>
+    <ion-col
+      size="12"
+      class="ion-justify-content-center"
+      style="margin-bottom: 40px"
+    >
+      <ion-text class="ion-text-center">
+        <h1
+          class="top-header-text-mid"
+          style="font-size: 25px; color: #86888f; margin-top: 5px"
+        >
+        Doing your laundry has never been easier.
+        </h1>
+      </ion-text>
+    </ion-col>
+    <ion-row class="mid-three-box">
+      <ion-col size="3" sizeMd="3" sizeXs="12">
+          <ion-img
+            class="box-image-style"
+            src="../../assets/sample-images/yabo/sign-up.png"
+            alt="wash and fold image"
+          ></ion-img>
+      </ion-col>
+      <ion-col size="3" sizeMd="3" sizeXs="12">
+        <ion-img
+          class="box-image-style"
+          src="../../assets/sample-images/yabo/pickup.png"
+          alt="wash and fold image"
+        ></ion-img>
+    </ion-col>
+    <ion-col size="3" sizeMd="3" sizeXs="12">
+      <ion-img
+        class="box-image-style"
+        src="../../assets/sample-images/yabo/process.png"
+        alt="wash and fold image"
+      ></ion-img>
+  </ion-col>
+  <ion-col size="3" sizeMd="3" sizeXs="12">
+    <ion-img
+      class="box-image-style"
+      src="../../assets/sample-images/yabo/delivery.png"
+      alt="wash and fold image"
+    ></ion-img>
+</ion-col>
+    </ion-row>
+  </ion-row>
+
+  <ion-row class="ion-justify-content-center">
+    <ion-button
+      shape="round"
+      [routerLink]="['/auth/signup']"
+      color="facebook"
+      type="button"
+      expand="block"
+      size="large"
+      >Give Yabo a Try</ion-button
+    >
+  </ion-row>
+</ion-content>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1010152877586",
+    "project_id": "yabotest",
+    "storage_bucket": "yabotest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1010152877586:android:e586e4c04a647649da72cb",
+        "android_client_info": {
+          "package_name": "com.yabo.yaboclean"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtHDc6Ecq_13gFWtsXb1c2xiJYFiLCLxs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

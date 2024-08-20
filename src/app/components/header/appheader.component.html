@@ -1,0 +1,74 @@
+<ion-header>
+  <div *ngIf="isLoggedIn == true; else elseBlock">
+    <ion-toolbar color="primary" style="overflow-x: scroll; width: 100%">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+        <ion-title>{{ getPtitle() }}</ion-title>
+      </ion-buttons>
+
+      <ion-button (click)="home()" expand="block">
+        <ion-icon name="home"></ion-icon>
+        <span class="hide-sm hide-xs">Home</span>
+      </ion-button>
+
+      <ion-buttons slot="secondary">
+        <ion-button (click)="dashboard()">
+          <ion-icon name="speedometer"></ion-icon>
+          <span class="hide-sm hide-xs"> Dashboard</span>
+        </ion-button>
+        <ion-button (click)="donate()" expand="block">
+          <ion-icon name="heart-outline" style="color: red"></ion-icon>
+          <span class="hide-sm hide-xs"> Donate</span>
+        </ion-button>
+        <ion-button (click)="contactus()" expand="block">
+          <ion-icon name="mail-open-outline"></ion-icon>
+          <span class="hide-sm hide-xs"> Contact Us</span>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="onLogout()">
+          <ion-icon name="log-out"></ion-icon>
+
+          <span class="hide-sm hide-xs">Log Out</span>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </div>
+
+  <ng-template #elseBlock>
+    <ion-toolbar color="primary" style="overflow-x: scroll; width: 100%">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+        <ion-title>{{ getPtitle() }}</ion-title>
+      </ion-buttons>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="home()" expand="block">
+          <ion-icon name="home"></ion-icon>
+          <span class="hide-sm hide-xs">Home</span>
+        </ion-button>
+
+        <ion-button (click)="login()" expand="block">
+          <ion-icon name="download-outline"></ion-icon>
+          <span class="hide-sm hide-xs"> Login </span>
+        </ion-button>
+
+        <ion-button (click)="register()" expand="block">
+          <ion-icon name="people-circle-outline"></ion-icon>
+          <span class="hide-sm hide-xs"> Sign Up </span>
+        </ion-button>
+
+        <ion-button (click)="donate()" expand="block">
+          <ion-icon name="heart-outline" style="color: red"></ion-icon>
+          <span class="hide-sm hide-xs"> Donate</span>
+        </ion-button>
+
+        <ion-button (click)="contactus()" expand="block">
+          <ion-icon name="mail-open-outline"></ion-icon>
+          <span class="hide-sm hide-xs"> Contact Us</span>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ng-template>
+</ion-header>
